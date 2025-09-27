@@ -1,6 +1,7 @@
 # shopping_list_manager.py
 
 def display_menu():
+    """Display the shopping list menu options."""
     print("\nShopping List Manager")
     print("1. Add Item")
     print("2. Remove Item")
@@ -8,12 +9,21 @@ def display_menu():
     print("4. Exit")
 
 def main():
+    # Implementation of shopping_list as an array (list in Python)
     shopping_list = []
-    while True:
-        display_menu()
-        choice = input("Enter your choice: ")
 
-        if choice == '1':
+    while True:
+        # Calling the display_menu function
+        display_menu()
+
+        # Ensure choice input is treated as a number
+        try:
+            choice = int(input("Enter your choice (1-4): "))
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 4.")
+            continue
+
+        if choice == 1:
             # Add item
             item = input("Enter the item to add: ").strip()
             if item:
@@ -22,7 +32,7 @@ def main():
             else:
                 print("You cannot add an empty item.")
 
-        elif choice == '2':
+        elif choice == 2:
             # Remove item
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
@@ -31,7 +41,7 @@ def main():
             else:
                 print(f"'{item}' is not in your shopping list.")
 
-        elif choice == '3':
+        elif choice == 3:
             # View list
             if shopping_list:
                 print("\nYour Shopping List:")
@@ -40,12 +50,12 @@ def main():
             else:
                 print("Your shopping list is currently empty.")
 
-        elif choice == '4':
+        elif choice == 4:
             print("Goodbye!")
             break
 
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please enter a number between 1 and 4.")
 
 if __name__ == "__main__":
     main()
