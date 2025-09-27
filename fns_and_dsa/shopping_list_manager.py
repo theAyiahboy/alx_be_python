@@ -9,11 +9,7 @@ def main():
     shopping_list = []
     while True:
         display_menu()
-        try:
-            choice = int(input("Enter your choice: "))
-        except ValueError:
-            print("Invalid input. Enter a number.")
-            continue
+        choice = int(input("Enter your choice: "))
 
         if choice == 1:
             item = input("Enter item to add: ")
@@ -37,7 +33,7 @@ def main():
             print("Goodbye!")
             break
         else:
-            print("Invalid choice. Enter a number between 1 and 4.")
+            print("Invalid choice. Enter 1-4.")
 
 if __name__ == "__main__":
     main()
